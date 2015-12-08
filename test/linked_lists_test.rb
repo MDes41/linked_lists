@@ -14,8 +14,22 @@ class AppendNodeTest < Minitest::Test
     list.append(node2)
     list.append(node3)
 
-    assert_equal 3, list.count
+    assert_equal "A", node1.data
   end
+
+  def test_append_an_element_to_the_end_of_the_list_no_nodes
+    skip
+    list = List.new
+    list.append("A")
+    list.append("B")
+    list.append("C")
+
+    assert_equal "A", node1.at(0)
+    assert_equal "B", node1.at(1)
+    assert_equal "C", node1.at(2)
+    assert_equal nil, node1.at(2)
+  end
+
 # prepend_an_element_at_the_beginning_of_the_list
 # insert_an_element_at_an_arbitrary_position_in_the_list
 # includes?_gives_back_true_or_false_whether_the_supplied_value_is_in_the_list
@@ -29,13 +43,13 @@ class AppendNodeTest < Minitest::Test
 # remove_by_value_removes_the_first_occurrence_of_the_specified_value
 end
 
-# >> Run options: --seed 1110
+# >> Run options: --seed 20420
 # >>
 # >> # Running:
 # >>
 # >>
 # >>
-# >> Finished in 0.000595s, 0.0000 runs/s, 0.0000 assertions/s.
+# >> Finished in 0.000571s, 0.0000 runs/s, 0.0000 assertions/s.
 # >>
 # >> 0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
 
