@@ -2,32 +2,47 @@ require 'minitest/autorun'  # => true
 require 'node'              # ~> LoadError: cannot load such file -- node
 require 'list'
 
+
+
 class AppendNodeTest < Minitest::Test
-  def test_append_an_element_to_the_end_of_the_list
 
-    node1 = Node.new("A")
-    node2 = Node.new("B")
-    node3 = Node.new("C")
-
+  def test_list_with_head_and_tail
     list = List.new
-    list.append(node1)
-    list.append(node2)
-    list.append(node3)
 
-    assert_equal "A", node1.data
+    assert_equal nil, list.head
+    assert_equal nil, list.tail
+  end
+
+  def test_if_node_is_added_and_next_node_points_to_nil
+    list = List.new
+    list.add_node("A")
+
+
+    assert_equal "A", list.current_node.data
+    assert_equal nil, list.current_node.next
+  end
+
+  def test_if_two_nodes_are_added_and_last_node_points_to_nil
+    list = List.new
+    list.add_node("A")
+    list.add_node("B")
+
+    # assert_equal "A", list.head.data
+    assert_equal "B", list.current_node.data
+    assert_equal nil, list.current_node.next
+    assert_equal "A", list.head
   end
 
   def test_append_an_element_to_the_end_of_the_list_no_nodes
-    skip
     list = List.new
     list.append("A")
     list.append("B")
     list.append("C")
 
-    assert_equal "A", node1.at(0)
-    assert_equal "B", node1.at(1)
-    assert_equal "C", node1.at(2)
-    assert_equal nil, node1.at(2)
+    assert_equal "A", list.at(0)
+    assert_equal "B", list.at(1)
+    assert_equal "C", list.at(2)
+    assert_equal nil, list.at(3)
   end
 
 # prepend_an_element_at_the_beginning_of_the_list
