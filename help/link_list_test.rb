@@ -70,4 +70,15 @@ class ListTest < Minitest::Test
     assert_equal true,  list.includes?("bobo")
   end
 
+  def test_to_return_all_the_values_in_the_list
+    list = List.new("beep")
+    list.append("bop")
+    list.append("beep")
+    list.append("bobo")
+    list.prepend("top")
+
+    assert_equal "top beep bop beep bobo", list.all
+  end
+
+
 end

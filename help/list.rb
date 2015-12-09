@@ -61,7 +61,7 @@ class List
 
   def includes?(includes)
     current = @head
-    until current.data == includes or current.next_node == nil
+    until current.data == includes || current.next_node == nil
       current = current.next_node
     end
     if current.data == includes
@@ -70,4 +70,10 @@ class List
       false
     end
   end
+
+  def all?
+    
+  end
+
+
 end
